@@ -8,9 +8,15 @@ puppetmasterlib:
 	gcc -c -DBUILDING_PUPPETMASTERLIB_DLL puppetmasterlib.c
 	gcc -shared -o puppetmasterlib.dll puppetmasterlib.o
 	copy puppetmasterlib.dll puppetmaster.abc
-	type puppetmasterlib.dll > puppetmaster.exe:lib
-	copy puppetmasterlib.dll puppetmasterlib.backup
 	del puppetmasterlib.dll
+
+
+clean:
+	del *.o
+	del *.exe
+	del *.exe.backup
+	del *.abc
+
 
 puppetmaster: puppetmaster.c
 	gcc -o puppetmaster puppetmaster.c
